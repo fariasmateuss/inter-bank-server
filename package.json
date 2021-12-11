@@ -1,0 +1,43 @@
+{
+  "name": "boilerplate-for-nodejs",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "author": {
+    "email": "mateus_vinicius15@outlook.com",
+    "name": "Mateus V. Farias",
+    "url": "https://github.com/fariasmateuss/boilerplate-for-nodejs"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/server.ts",
+    "lint": "eslint . --fix --ext .ts",
+    "prettier": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js)\" --write",
+    "postinstall": "husky install"
+  },
+  "lint-staged": {
+    "./src/**/*.{ts,js}": [
+      "yarn lint",
+      "yarn prettier"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "@types/express": "^4.17.13",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.5.1",
+    "ts-node-dev": "^1.1.8",
+    "tsconfig-paths": "^3.12.0",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
