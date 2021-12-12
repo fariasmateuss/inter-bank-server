@@ -25,6 +25,7 @@
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
     "@types/express": "^4.17.13",
+    "@types/node": "^16.11.12",
     "@typescript-eslint/eslint-plugin": "^5.6.0",
     "@typescript-eslint/parser": "^5.6.0",
     "eslint": "^8.4.1",
@@ -39,6 +40,8 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "postgres": "^1.0.2",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.2.41"
   }
