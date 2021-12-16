@@ -1,11 +1,20 @@
+import 'express-async-errors'
 import express from 'express'
+import { createConnection } from 'typeorm'
 
+import globalErrors from './middlewares/globalErrors'
 import routes from './routes'
 
-const app = express()
+createConnection()
+  .then(async () => {
+    const app = express()
+    const port = 3333
 
-const port = 3333
+    app.use(express.json())
+    app.use(routes)
+    app.use(globalErrors)
 
-app.use(routes)
-
-app.listen(port, () => console.log(`server is listening on ${port}`))
+    app.listen(port, () => console.log(`Server is listening on ${port}`))
+  })
+  .then(() => console.log('Connected to database'))
+  .catch(error => console.log(error))

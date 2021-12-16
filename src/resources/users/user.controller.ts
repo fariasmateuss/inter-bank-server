@@ -1,11 +1,22 @@
 import { Request, Response } from 'express'
 
-export class UserController {
-  async signUp(req: Request, res: Response) {
-    return res.json({ message: 'SignUp' })
+import UserService from './user.services'
+
+class UserController {
+  async signUp(request: Request, response: Response) {
+    const userService = new UserService()
+    const user = await userService.signUp(request.body)
+
+    return response.status(201).send(user)
   }
 
-  async signIn(req: Request, res: Response) {
-    return res.json({ message: 'SignIn' })
+  async signIn(request: Request, response: Response) {
+    const { email, password } = request.body
+    const userService = new UserService()
+    const user = await userService.signIn({ email, password })
+
+    return response.status(200).send(user)
   }
 }
+
+export default UserController
