@@ -17,6 +17,13 @@ class UserController {
 
     return response.status(200).send(user)
   }
+
+  async me(request: Request, response: Response) {
+    const userService = new UserService()
+    const user = await userService.me(request.user)
+
+    return response.status(201).send(user)
+  }
 }
 
 export default UserController

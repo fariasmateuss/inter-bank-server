@@ -1,12 +1,13 @@
 import { Router } from 'express'
 
 import UserController from '@resources/users/user.controller'
+import userAuthentication from '@middlewares/userAuthentication'
 
-const usersRouter = Router()
+const userRouter = Router()
 const userController = new UserController()
 
-usersRouter.post('/signin', userController.signIn)
+userRouter.post('/signin', userController.signIn)
+userRouter.post('/signup', userController.signUp)
+userRouter.get('/me', userAuthentication, userController.me)
 
-usersRouter.post('/signup', userController.signUp)
-
-export default usersRouter
+export default userRouter
