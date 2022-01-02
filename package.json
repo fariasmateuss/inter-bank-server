@@ -1,12 +1,19 @@
 {
-  "name": "boilerplate-for-nodejs",
+  "name": "inter-bank-server",
   "version": "1.0.0",
   "main": "src/index.js",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fariasmateuss/inter-bank-server.git"
+  },
   "author": {
     "email": "mateus_vinicius15@outlook.com",
     "name": "Mateus V. Farias",
-    "url": "https://github.com/fariasmateuss/boilerplate-for-nodejs"
+    "url": "https://github.com/fariasmateuss/"
+  },
+  "engines": {
+    "node": "16.x.x"
   },
   "scripts": {
     "build": "tsc",
