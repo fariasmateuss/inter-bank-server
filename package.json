@@ -12,9 +12,6 @@
     "name": "Mateus V. Farias",
     "url": "https://github.com/fariasmateuss/"
   },
-  "engines": {
-    "node": "16.x.x"
-  },
   "scripts": {
     "build": "tsc --build",
     "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/server.ts",

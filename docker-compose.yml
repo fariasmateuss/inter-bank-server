@@ -8,6 +8,6 @@ services:
     ports:
       - 5432:5432
     environment:
-      POSTGRES_USER: admin
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: inter-server
       POSTGRES_DB: inter
