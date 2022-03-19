@@ -1,6 +1,21 @@
 version: '3.1'
 
 services:
+  api:
+    container_name: inter-api
+    build: .
+    restart: always
+    volumes:
+      - .:/usr/app/
+    ports:
+      - 3333:3333
+    networks:
+      - inter-backend
+    environment:
+      PG_HOST: postgres
+    depends_on:
+      - postgres
+
   postgres:
     container_name: inter-postgres
     image: postgres:13-alpine
@@ -11,3 +26,14 @@ services:
       POSTGRES_USER: ${PG_USERNAME}
       POSTGRES_PASSWORD: ${PG_PASSWORD}
       POSTGRES_DB: ${PG_DATABASE}
+    volumes:
+      - db-data:/db/postgres
+    networks:
+      - inter-backend
+
+volumes:
+  db-data:
+
+networks:
+  inter-backend:
+    driver: bridge
