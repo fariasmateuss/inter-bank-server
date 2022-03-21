@@ -1,22 +1,12 @@
 import 'express-async-errors'
-import express from 'express'
-import cors from 'cors'
-import { createConnection } from 'typeorm'
+import 'dotenv/config'
 
-import globalErrors from './middlewares/globalErrors'
-import routes from './routes'
+import app from './app'
 
-createConnection()
-  .then(async () => {
-    const app = express()
-    const port = 3333
+const appPort = process.env.PORT || 3333
 
-    app.use(cors())
-    app.use(express.json())
-    app.use(routes)
-    app.use(globalErrors)
+function bootstrap() {
+  app.listen(appPort)
+}
 
-    app.listen(port, () => console.log(`Server is listening on ${port}`))
-  })
-  .then(() => console.log('Connected to database'))
-  .catch(error => console.log(error))
+bootstrap()
